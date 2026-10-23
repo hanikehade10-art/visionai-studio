@@ -1,62 +1,920 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#100d1c">
+<meta name="description" content="VisionAI Studio — Create images and videos with AI-powered creative tools.">
 <title>VisionAI Studio</title>
+
 <style>
-:root{--bg:#101014;--panel:#1b1a22;--line:#383543;--text:#f5f2fb;--muted:#aaa4b8;--purple:#c2aaff}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:15px Arial,sans-serif;line-height:1.5}
-header{display:flex;justify-content:space-between;align-items:center;padding:18px 6%;border-bottom:1px solid #ffffff18;position:sticky;top:0;background:#101014ee;backdrop-filter:blur(12px)}
-.logo{font-size:22px;font-weight:bold}.logo b{color:var(--purple)}nav{display:flex;gap:22px}a{color:inherit;text-decoration:none}nav a{color:#c7c1d2;font-size:13px}
-.btn{display:inline-block;border:0;border-radius:9px;padding:12px 16px;background:linear-gradient(100deg,#bda4ff,#eca0e7);color:#191421;font-weight:bold;cursor:pointer}
-.hero{text-align:center;padding:85px 20px 70px;background:radial-gradient(ellipse at top,#4a2c6655,transparent 65%)}
-.tag{font-size:10px;letter-spacing:2px;color:var(--purple);font-weight:bold}.hero h1{font-size:clamp(40px,7vw,72px);line-height:1.05;letter-spacing:-3px;margin:18px 0}.hero h1 span{color:#c7aaff}.hero p{max-width:570px;margin:0 auto 25px;color:var(--muted)}
-section.wrap{max-width:1100px;margin:auto;padding:45px 20px}.heading{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:20px}.heading h2{margin:5px 0;font-size:clamp(25px,4vw,34px);letter-spacing:-1px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.panel,.card,.price{background:var(--panel);border:1px solid #ffffff14;border-radius:15px;padding:22px;min-width:0}
-label,.label{display:block;font-size:12px;font-weight:bold;margin:15px 0 8px}textarea,select{width:100%;border:1px solid var(--line);background:#111116;color:white;border-radius:9px;padding:12px;font:13px Arial}textarea{min-height:110px;resize:vertical}
-.modes{display:flex;gap:7px;flex-wrap:wrap}.mode{padding:9px 11px;background:#24222d;border:1px solid var(--line);border-radius:8px;color:#c9c3d5;cursor:pointer;font-size:12px}.mode.active{border-color:var(--purple);color:var(--purple);background:#c2aaff16}
-.hint{font-size:10px;color:#8f899f;display:flex;justify-content:space-between;margin-top:6px}.upload{display:block;text-align:center;border:1px dashed #5a526b;border-radius:10px;padding:22px 10px;cursor:pointer;color:#c6b4ff}.upload input{display:none}.upload small{display:block;color:#9891a6;margin-top:5px}
-#preview{max-width:100%;max-height:190px;display:block;margin:12px auto;border-radius:9px} .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-button.full{width:100%;margin-top:18px}.fine{font-size:10px;color:#928ca0;text-align:center}.canvas{min-height:340px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-radius:12px;margin-top:15px;padding:20px;background:radial-gradient(ellipse,#4e3a7055,transparent 65%),#15141c;border:1px solid #ffffff12}.star{font-size:48px;color:var(--purple)}.canvas h3{font-size:24px;margin:8px}.canvas p{color:var(--muted);font-size:12px;max-width:270px}.result{font-size:12px;color:#d6cde8;white-space:pre-wrap;overflow-wrap:anywhere;margin-top:15px}.hidden{display:none}
-.cards,.prices{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.card h3{font-size:15px}.card p,.price p{font-size:12px;color:var(--muted)}.status{font-size:9px;color:var(--purple);letter-spacing:1px}.prices{grid-template-columns:repeat(3,1fr)}.price h3{font-size:28px}.price ul{font-size:12px;color:#d0c9da;padding-left:18px;line-height:2.2}.featured{border-color:#bca1ff88}.disclaimer{font-size:10px;color:#928ca0;margin-top:12px}
-footer{border-top:1px solid #ffffff18;padding:25px 6%;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#938da2;font-size:11px}
-#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#eee5ff;color:#191421;border-radius:9px;padding:12px 16px;font-size:12px;font-weight:bold;display:none;max-width:90%}
-@media(max-width:760px){nav{gap:12px}.grid{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}.canvas{min-height:250px}.panel{padding:16px}}
-@media(max-width:480px){header{padding:15px;flex-wrap:wrap;gap:12px}nav{order:3;width:100%;justify-content:space-between}.hero{padding:65px 17px}.hero h1{letter-spacing:-2px}.cards,.prices{grid-template-columns:1fr}.heading{align-items:start;flex-direction:column}section.wrap{padding:35px 15px}}
+:root {
+  --bg: #100d1c;
+  --panel: #1b162b;
+  --panel-light: #241d38;
+  --purple: #a78bfa;
+  --pink: #f472b6;
+  --text: #f8f7ff;
+  --muted: #aaa4bd;
+  --border: rgba(255,255,255,.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+button, input, textarea, select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 6%;
+  border-bottom: 1px solid var(--border);
+  background: rgba(16,13,28,.95);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -.5px;
+}
+
+.logo span {
+  color: var(--purple);
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.nav-links a:hover {
+  color: white;
+}
+
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: 12px;
+  padding: 11px 17px;
+  font-weight: 700;
+  background: linear-gradient(110deg, var(--purple), var(--pink));
+  color: #171020;
+}
+
+.btn:hover {
+  opacity: .9;
+}
+
+.btn-secondary {
+  color: white;
+  background: var(--panel-light);
+  border: 1px solid var(--border);
+}
+
+.hero {
+  text-align: center;
+  padding: 65px 20px 35px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.badge {
+  display: inline-block;
+  border: 1px solid rgba(167,139,250,.4);
+  background: rgba(167,139,250,.1);
+  color: #d4c5ff;
+  border-radius: 30px;
+  padding: 6px 13px;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: clamp(36px, 7vw, 65px);
+  line-height: 1.12;
+  letter-spacing: -2px;
+}
+
+.gradient-text {
+  background: linear-gradient(110deg, #c4b5fd, #f9a8d4);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.hero p {
+  max-width: 600px;
+  margin: 20px auto;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.section {
+  max-width: 1150px;
+  margin: auto;
+  padding: 35px 20px 55px;
+}
+
+.section-heading {
+  margin-bottom: 25px;
+}
+
+.section-heading h2 {
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+.section-heading p {
+  color: var(--muted);
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 23px;
+  min-width: 0;
+}
+
+.card h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.mode-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.mode-tab {
+  background: var(--panel-light);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 5px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.mode-tab.active {
+  background: rgba(167,139,250,.18);
+  border-color: var(--purple);
+  color: white;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+textarea, input[type="text"], select {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #100d1c;
+  color: white;
+  padding: 13px;
+  outline: none;
+}
+
+textarea:focus, input:focus, select:focus {
+  border-color: var(--purple);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 125px;
+}
+
+.field {
+  margin-bottom: 18px;
+}
+
+.counter {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.settings-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.upload-box {
+  border: 1px dashed #71648e;
+  border-radius: 13px;
+  padding: 20px;
+  text-align: center;
+  background: rgba(255,255,255,.02);
+  margin-bottom: 18px;
+}
+
+.upload-box p {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 5px 0 12px;
+}
+
+.upload-box input {
+  max-width: 100%;
+  font-size: 12px;
+}
+
+.preview-image {
+  max-width: 100%;
+  max-height: 230px;
+  object-fit: contain;
+  border-radius: 12px;
+  margin-top: 12px;
+  display: none;
+}
+
+.full-btn {
+  width: 100%;
+  margin-top: 5px;
+}
+
+.result-box {
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at top, rgba(167,139,250,.12), transparent 65%),
+    #151123;
+  border: 1px dashed #514568;
+  border-radius: 16px;
+  padding: 25px;
+}
+
+.result-icon {
+  font-size: 55px;
+  margin-bottom: 12px;
+}
+
+.result-box h3 {
+  margin-bottom: 8px;
+}
+
+.result-box p {
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 330px;
+}
+
+.result-box img {
+  max-width: 100%;
+  max-height: 350px;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.status {
+  font-size: 13px;
+  color: #c4b5fd;
+  margin-top: 15px;
+  overflow-wrap: anywhere;
+}
+
+.feature-grid, .pricing-grid, .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.feature-card, .price-card, .gallery-card {
+  padding: 22px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 17px;
+}
+
+.feature-icon {
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+.feature-card h3, .gallery-card h3 {
+  margin-bottom: 7px;
+}
+
+.feature-card p, .gallery-card p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.gallery-placeholder {
+  background: linear-gradient(135deg, #342454, #512c54, #202040);
+  border-radius: 12px;
+  min-height: 140px;
+  display: grid;
+  place-items: center;
+  font-size: 45px;
+  margin-bottom: 13px;
+}
+
+.price-card .price {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 12px 0;
+}
+
+.price-card .price span {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.price-card ul {
+  list-style: none;
+  margin: 20px 0;
+}
+
+.price-card li {
+  padding: 7px 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.price-card li::before {
+  content: "✓ ";
+  color: var(--purple);
+}
+
+.price-card.featured {
+  border-color: var(--purple);
+  box-shadow: 0 0 30px rgba(167,139,250,.08);
+}
+
+.notice {
+  border: 1px solid rgba(244,114,182,.3);
+  background: rgba(244,114,182,.07);
+  color: #f5c8e0;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 13px;
+  margin-top: 18px;
+}
+
+footer {
+  text-align: center;
+  border-top: 1px solid var(--border);
+  padding: 30px 20px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+footer strong {
+  color: white;
+}
+
+@media (max-width: 760px) {
+  .nav-links {
+    gap: 10px;
+  }
+
+  .nav-links a {
+    display: none;
+  }
+
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-grid, .pricing-grid, .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 45px;
+  }
+
+  .hero h1 {
+    letter-spacing: -1px;
+  }
+
+  .card {
+    padding: 17px;
+  }
+}
 </style>
 </head>
+
 <body>
-<header><a class="logo" href="#">✦ Vision<b>AI</b></a><nav><a href="#create">Create</a><a href="#tools">Tools</a><a href="#plans">Plans</a></nav><a class="btn" href="#create">Start creating ↗</a></header>
+
+<header class="navbar">
+  <a href="#" class="logo">VisionAI <span>Studio</span></a>
+
+  <nav class="nav-links">
+    <a href="#create">Create</a>
+    <a href="#features">Features</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#pricing">Plans</a>
+  </nav>
+
+  <a href="#create" class="btn">Start Creating</a>
+</header>
+
 <main>
-<section class="hero"><div class="tag">YOUR CREATIVE SPACE</div><h1>Ideas into<br><span>visual magic.</span></h1><p>A creative workspace for your image ideas, video concepts and experiments. Start with a prompt and prepare your next idea.</p><a class="btn" href="#create">Open workspace ↗</a></section>
-<section class="wrap" id="create"><div class="heading"><div><div class="tag">CREATION WORKSPACE</div><h2>What are we making today?</h2></div></div>
-<div class="grid"><div class="panel">
-<div class="label">Choose a creation type</div><div class="modes"><button class="mode active" data-mode="Text to Image">▧ Text to Image</button><button class="mode" data-mode="Text to Video">▶ Text to Video</button><button class="mode" data-mode="Image to Video">▣ Image to Video</button></div>
-<label for="prompt">Describe your idea</label><textarea id="prompt" maxlength="600" placeholder="A dreamy futuristic city at sunset, cinematic lighting, soft clouds..."></textarea><div class="hint"><span>Be imaginative.</span><span id="count">0 / 600</span></div>
-<label for="file">Reference image <span style="color:#8f899f;font-weight:normal">(optional)</span></label><label class="upload" for="file">＋ Tap to upload an image<small>PNG, JPG or WEBP · local preview only</small><input type="file" id="file" accept="image/*"></label><img id="preview" class="hidden" alt="Uploaded preview">
-<div class="two"><div><label for="ratio">Aspect ratio</label><select id="ratio"><option>1:1 Square</option><option>16:9 Landscape</option><option>9:16 Portrait</option><option>4:5 Social</option></select></div><div><label for="style">Visual style</label><select id="style"><option>Creative</option><option>Cinematic</option><option>Photorealistic</option><option>Anime</option><option>3D render</option><option>Illustration</option></select></div></div>
-<button class="btn full" id="prepare">✦ Prepare my idea →</button><p class="fine">This starter prepares prompts locally. AI generation is not connected yet.</p>
-</div><div class="panel"><div class="tag">YOUR CANVAS</div><h2 style="margin:5px 0">Creation preview</h2><div class="canvas" id="canvas"><div class="star">✧</div><h3>Your next idea<br>starts here.</h3><p>Your prompt and reference image preview will appear here.</p></div><div id="result" class="result hidden"></div><button class="btn hidden" id="copy" style="margin-top:12px">Copy prepared prompt</button></div></div></section>
-<section class="wrap" id="tools"><div class="heading"><div><div class="tag">THE TOOLBOX</div><h2>One space. Many possibilities.</h2></div></div><div class="cards">
-<article class="card"><div class="star">▧</div><h3>Text to Image</h3><p>Prepare image prompts for a compatible AI model.</p><span class="status">WORKSPACE READY</span></article>
-<article class="card"><div class="star">▶</div><h3>Text to Video</h3><p>Prepare video ideas for a compatible video model.</p><span class="status">MODEL NEEDED</span></article>
-<article class="card"><div class="star">▣</div><h3>Image to Video</h3><p>Upload a reference and prepare an animation prompt.</p><span class="status">MODEL NEEDED</span></article>
-<article class="card"><div class="star">✧</div><h3>Effects & Transitions</h3><p>A space for future video editing tools and transitions.</p><span class="status">IN DEVELOPMENT</span></article>
-</div></section>
-<section class="wrap" id="plans"><div class="heading"><div><div class="tag">SIMPLE PLANS</div><h2>Start free. Grow when ready.</h2></div></div><div class="prices">
-<article class="price"><span class="tag">FREE</span><h3>₦0</h3><p>For trying the workspace.</p><ul><li>Prompt workspace</li><li>Image upload preview</li><li>Basic tools</li></ul><a class="btn" href="#create">Try free</a></article>
-<article class="price featured"><span class="tag">PRO</span><h3>₦3,000<small style="font-size:11px"> / month*</small></h3><p>For regular creators.</p><ul><li>More generation credits*</li><li>Expanded tools*</li><li>Project history*</li></ul><a class="btn" href="#create">Explore Pro</a></article>
-<article class="price"><span class="tag">PRO MAX</span><h3>₦5,000<small style="font-size:11px"> / month*</small></h3><p>For bigger projects.</p><ul><li>Higher usage limits*</li><li>Advanced tools*</li><li>Priority generation*</li></ul><a class="btn" href="#create">Explore Pro Max</a></article>
-</div><p class="disclaimer">*These are draft prices only. Payment and AI generation are not connected. We will confirm real costs and limits before activating paid plans.</p></section>
-</main><footer><a class="logo" href="#">✦ Vision<b>AI</b></a><span>Made for ideas that deserve to be seen.</span><span>© <span id="year"></span> VisionAI Studio</span></footer><div id="toast" role="status"></div>
+
+<section class="hero">
+  <div class="badge">✦ YOUR CREATIVE SPACE</div>
+
+  <h1>
+    Turn your ideas into
+    <span class="gradient-text">visual magic.</span>
+  </h1>
+
+  <p>
+    Explore your imagination with a creative workspace
+    designed for AI images, videos, and visual storytelling.
+  </p>
+
+  <div class="hero-buttons">
+    <a href="#create" class="btn">Start Creating →</a>
+    <a href="#features" class="btn btn-secondary">Explore Features</a>
+  </div>
+</section>
+
+<section class="section" id="create">
+  <div class="section-heading">
+    <h2>Creative Workspace</h2>
+    <p>Describe your idea, choose your settings, and prepare your creation.</p>
+  </div>
+
+  <div class="workspace">
+
+    <div class="card">
+      <h3>✦ Create something new</h3>
+
+      <div class="mode-tabs">
+        <button class="mode-tab active" data-mode="image">
+          🖼️ Text to Image
+        </button>
+
+        <button class="mode-tab" data-mode="video">
+          🎬 Text to Video
+        </button>
+
+        <button class="mode-tab" data-mode="animate">
+          ✨ Image to Video
+        </button>
+      </div>
+
+      <div class="field">
+        <label for="prompt">Describe your idea</label>
+
+        <textarea
+          id="prompt"
+          maxlength="1500"
+          placeholder="Describe what you want to create..."
+        ></textarea>
+
+        <div class="counter">
+          <span>Be as descriptive as you like.</span>
+          <span id="counter">0/1500</span>
+        </div>
+      </div>
+
+      <div class="upload-box">
+        <label for="imageUpload">Upload a reference image (optional)</label>
+
+        <p>Choose an image from your phone.</p>
+
+        <input
+          type="file"
+          id="imageUpload"
+          accept="image/*"
+        >
+
+        <img
+          id="imagePreview"
+          class="preview-image"
+          alt="Uploaded image preview"
+        >
+      </div>
+
+      <div class="settings-row">
+        <div class="field">
+          <label for="ratio">Aspect ratio</label>
+
+          <select id="ratio">
+            <option value="1:1">Square (1:1)</option>
+            <option value="16:9">Landscape (16:9)</option>
+            <option value="9:16">Portrait (9:16)</option>
+            <option value="4:3">Classic (4:3)</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="style">Visual style</label>
+
+          <select id="style">
+            <option>Realistic</option>
+            <option>Cinematic</option>
+            <option>Anime</option>
+            <option>Digital Art</option>
+            <option>3D Render</option>
+            <option>Watercolour</option>
+            <option>Fantasy</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="btn full-btn" id="prepareBtn">
+        Prepare My Prompt ✨
+      </button>
+
+      <button class="btn btn-secondary full-btn" id="copyBtn">
+        Copy Prepared Prompt
+      </button>
+
+      <div class="notice">
+        AI generation is not connected yet. This workspace currently
+        prepares prompts and previews uploaded images.
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Your Creation</h3>
+
+      <div class="result-box" id="resultBox">
+        <div class="result-icon">✧</div>
+
+        <h3>Your canvas awaits</h3>
+
+        <p>
+          Your prepared prompt will appear here.
+          Connect an AI provider to generate real images and videos.
+        </p>
+      </div>
+
+      <p class="status" id="status" aria-live="polite">
+        Ready for your idea.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="features">
+  <div class="section-heading">
+    <h2>Made for your imagination</h2>
+    <p>Build your creative workflow in one place.</p>
+  </div>
+
+  <div class="feature-grid">
+    <article class="feature-card">
+      <div class="feature-icon">🎨</div>
+      <h3>AI Image Creation</h3>
+      <p>Prepare detailed prompts for original visual concepts.</p>
+    </article>
+
+    <article class="feature-card">
+      <div class="feature-icon">🎬</div>
+      <h3>Video Creation</h3>
+      <p>Plan scenes, movement, atmosphere, and cinematic shots.</p>
+    </article>
+
+    <article class="feature-card">
+      <div class="feature-icon">🪄</div>
+      <h3>Image Transformation</h3>
+      <p>Upload a reference image and prepare a transformation prompt.</p>
+    </article>
+
+    <article class="feature-card">
+      <div class="feature-icon">📱</div>
+      <h3>Mobile Friendly</h3>
+      <p>Use the creative workspace from your phone or computer.</p>
+    </article>
+
+    <article class="feature-card">
+      <div class="feature-icon">💡</div>
+      <h3>Creative Freedom</h3>
+      <p>Explore different visual styles and aspect ratios.</p>
+    </article>
+
+    <article class="feature-card">
+      <div class="feature-icon">🚀</div>
+      <h3>Room to Grow</h3>
+      <p>Build toward AI integrations, accounts, and a creation gallery.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="gallery">
+  <div class="section-heading">
+    <h2>Explore the possibilities</h2>
+    <p>Example categories for your future creation gallery.</p>
+  </div>
+
+  <div class="gallery-grid">
+    <article class="gallery-card">
+      <div class="gallery-placeholder">🌌</div>
+      <h3>Fantasy Worlds</h3>
+      <p>Dreamlike places and imaginative environments.</p>
+    </article>
+
+    <article class="gallery-card">
+      <div class="gallery-placeholder">🏙️</div>
+      <h3>Cinematic Scenes</h3>
+      <p>Visual concepts inspired by film and storytelling.</p>
+    </article>
+
+    <article class="gallery-card">
+      <div class="gallery-placeholder">🤖</div>
+      <h3>Digital Futures</h3>
+      <p>Explore futuristic concepts and digital art styles.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+  <div class="section-heading">
+    <h2>Plans for every creator</h2>
+    <p>These are draft plans for the future, not active subscriptions.</p>
+  </div>
+
+  <div class="pricing-grid">
+    <article class="price-card">
+      <h3>Free</h3>
+      <div class="price">₦0 <span>/ month</span></div>
+
+      <ul>
+        <li>Access to the workspace</li>
+        <li>Prompt preparation</li>
+        <li>Image preview</li>
+      </ul>
+
+      <a href="#create" class="btn btn-secondary">Get Started</a>
+    </article>
+
+    <article class="price-card featured">
+      <h3>Pro</h3>
+      <div class="price">₦3,000 <span>/ month</span></div>
+
+      <ul>
+        <li>Potential higher generation limits</li>
+        <li>Potential premium models</li>
+        <li>Potential saved creations</li>
+      </ul>
+
+      <a href="#create" class="btn">Coming Later</a>
+    </article>
+
+    <article class="price-card">
+      <h3>Pro Max</h3>
+      <div class="price">₦5,000 <span>/ month</span></div>
+
+      <ul>
+        <li>Potential advanced models</li>
+        <li>Potential video generation</li>
+        <li>Potential extended limits</li>
+      </ul>
+
+      <a href="#create" class="btn btn-secondary">Coming Later</a>
+    </article>
+  </div>
+
+  <div class="notice">
+    No payments or subscriptions are active. Pricing and features
+    must be confirmed before launch.
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p><strong>VisionAI Studio</strong> — Your ideas, your imagination.</p>
+  <p>Built step by step with creativity.</p>
+  <p>© <span id="year"></span> VisionAI Studio</p>
+</footer>
+
 <script>
-let mode='Text to Image',imageUrl='';
-const $=id=>document.getElementById(id);
-$('year').textContent=new Date().getFullYear();
-function toast(msg){$('toast').textContent=msg;$('toast').style.display='block';clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>$('toast').style.display='none',2800)}
-document.querySelectorAll('.mode').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.mode').forEach(x=>x.classList.remove('active'));b.classList.add('active');mode=b.dataset.mode;$('prompt').placeholder=mode==='Text to Video'?'A cinematic tracking shot through a neon-lit city in the rain...':mode==='Image to Video'?'Describe how you want your image to move or come to life...':'A dreamy futuristic city at sunset, cinematic lighting...'}));
-$('prompt').addEventListener('input',()=>$('count').textContent=$('prompt').value.length+' / 600');
-$('file').addEventListener('change',()=>{let f=$('file').files[0];if(!f)return;if(!f.type.startsWith('image/')){toast('Please choose an image file.');return}if(imageUrl)URL.revokeObjectURL(imageUrl);imageUrl=URL.createObjectURL(f);$('preview').src=imageUrl;$('preview').classList.remove('hidden');toast('Image added for preview.')});
-$('prepare').addEventListener('click',()=>{let p=$('prompt').value.trim();if(!p){toast('Write your idea first.');$('prompt').focus();return}let text=p+'\\n\\nCreation type: '+mode+'\\nVisual style: '+$('style').value+'\\nAspect ratio: '+$('ratio').value;if(mode==='Image to Video'&&!imageUrl)text+='\\nNote: Upload a reference image before using an image-to-video model.';$('result').textContent=text;$('result').classList.remove('hidden');$('copy').classList.remove('hidden');$('canvas').innerHTML='<div class="star">✧</div><h3>Idea prepared.</h3><p>This is a prompt preview, not a generated image or video yet.</p>';if(imageUrl&&mode==='Image to Video')$('canvas').innerHTML='<img src="'+imageUrl+'" alt="Reference image" style="max-width:100%;max-height:230px;border-radius:10px"><h3>Ready for animation prompt</h3>';toast('Your idea is prepared. AI generation is not connected yet.')});
-$('copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('result').textContent);toast('Prompt copied.')}catch(e){toast('Please select and copy the prompt text manually.')}});
-</script></body></html>
+const promptInput = document.getElementById("prompt");
+const counter = document.getElementById("counter");
+const imageUpload = document.getElementById("imageUpload");
+const imagePreview = document.getElementById("imagePreview");
+const resultBox = document.getElementById("resultBox");
+const statusText = document.getElementById("status");
+
+let currentMode = "image";
+let preparedPrompt = "";
+let uploadedImageUrl = "";
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+promptInput.addEventListener("input", function () {
+  counter.textContent =
+    promptInput.value.length + "/1500";
+});
+
+document.querySelectorAll(".mode-tab").forEach(function (button) {
+  button.addEventListener("click", function () {
+    document.querySelectorAll(".mode-tab").forEach(function (tab) {
+      tab.classList.remove("active");
+    });
+
+    button.classList.add("active");
+    currentMode = button.dataset.mode;
+
+    const placeholders = {
+      image: "Example: A beautiful futuristic city at sunset, cinematic lighting, highly detailed...",
+      video: "Example: A cinematic drone shot flying over a futuristic city at sunset...",
+      animate: "Example: Make the clouds move slowly and let the camera gently move forward..."
+    };
+
+    promptInput.placeholder = placeholders[currentMode];
+
+    if (currentMode === "animate") {
+      imageUpload.accept = "image/*";
+    }
+
+    statusText.textContent =
+      "Selected mode: " + button.textContent.trim();
+  });
+});
+
+imageUpload.addEventListener("change", function () {
+  const file = imageUpload.files[0];
+
+  if (!file) {
+    return;
+  }
+
+  if (!file.type.startsWith("image/")) {
+    statusText.textContent = "Please choose an image file.";
+    imageUpload.value = "";
+    return;
+  }
+
+  if (uploadedImageUrl) {
+    URL.revokeObjectURL(uploadedImageUrl);
+  }
+
+  uploadedImageUrl = URL.createObjectURL(file);
+
+  imagePreview.src = uploadedImageUrl;
+  imagePreview.style.display = "block";
+
+  statusText.textContent =
+    "Image selected: " + file.name;
+});
+
+document.getElementById("prepareBtn").addEventListener(
+  "click",
+  function () {
+    const userPrompt = promptInput.value.trim();
+
+    if (!userPrompt) {
+      statusText.textContent =
+        "Please describe what you want to create first.";
+
+      promptInput.focus();
+      return;
+    }
+
+    const style = document.getElementById("style").value;
+    const ratio = document.getElementById("ratio").value;
+
+    const modeNames = {
+      image: "Text to Image",
+      video: "Text to Video",
+      animate: "Image to Video"
+    };
+
+    preparedPrompt =
+      "Mode: " + modeNames[currentMode] + "\n" +
+      "Prompt: " + userPrompt + "\n" +
+      "Visual style: " + style + "\n" +
+      "Aspect ratio: " + ratio;
+
+    resultBox.innerHTML = "";
+
+    const heading = document.createElement("h3");
+    heading.textContent = "Your prepared prompt";
+
+    const promptDisplay = document.createElement("pre");
+    promptDisplay.textContent = preparedPrompt;
+
+    promptDisplay.style.whiteSpace = "pre-wrap";
+    promptDisplay.style.overflowWrap = "anywhere";
+    promptDisplay.style.textAlign = "left";
+    promptDisplay.style.width = "100%";
+    promptDisplay.style.fontFamily = "inherit";
+    promptDisplay.style.fontSize = "14px";
+    promptDisplay.style.color = "#e9e4f8";
+    promptDisplay.style.marginTop = "12px";
+
+    resultBox.appendChild(heading);
+    resultBox.appendChild(promptDisplay);
+
+    if (uploadedImageUrl) {
+      const preview = document.createElement("img");
+      preview.src = uploadedImageUrl;
+      preview.alt = "Your uploaded reference image";
+      preview.style.marginTop = "18px";
+
+      resultBox.appendChild(preview);
+    }
+
+    statusText.textContent =
+      "Prompt prepared. AI generation is not connected yet.";
+  }
+);
+
+document.getElementById("copyBtn").addEventListener(
+  "click",
+  async function () {
+    if (!preparedPrompt) {
+      statusText.textContent =
+        "Prepare your prompt before copying it.";
+      return;
+    }
+
+    try {
+      await navigator.clipboard.writeText(preparedPrompt);
+
+      statusText.textContent = "Prompt copied successfully!";
+    } catch (error) {
+      const temporaryInput = document.createElement("textarea");
+
+      temporaryInput.value = preparedPrompt;
+      document.body.appendChild(temporaryInput);
+
+      temporaryInput.select();
+
+      const copied = document.execCommand("copy");
+
+      temporaryInput.remove();
+
+      statusText.textContent = copied
+        ? "Prompt copied successfully!"
+        : "Copy failed. Please select and copy the prompt manually.";
+    }
+  }
+);
+</script>
+
+</body>
+  </html>
