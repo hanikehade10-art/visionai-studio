@@ -3,25 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#100d1c">
-<meta name="description" content="VisionAI Studio — Create images and videos with AI-powered creative tools.">
+<meta name="theme-color" content="#090e20">
 <title>VisionAI Studio</title>
 
 <style>
-.btn {
-  display: inline-block;
-  border: none;
-  border-radius: 16px;
-  padding: 12px 20px;
-  font-weight: 700;
-  background: linear-gradient(110deg, #6558ed, #08bdf5);
-  color: #ffffff;
-  transition: 0.25s ease;
-}
-
-.btn:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
+:root {
+  --bg: #090e20;
+  --panel: #111a33;
+  --panel2: #182443;
+  --purple: #7057ff;
+  --blue: #08bdf5;
+  --pink: #ec4899;
+  --text: #f8faff;
+  --muted: #a0acc8;
+  --border: #263455;
 }
 
 * {
@@ -35,12 +30,18 @@ html {
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #0b1026 !important;
-  color: #f5f7ff !important;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
   line-height: 1.6;
 }
-button, input, textarea, select {
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button, textarea, select, input {
   font: inherit;
 }
 
@@ -48,43 +49,37 @@ button {
   cursor: pointer;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 15px;
-  padding: 18px 6%;
+  padding: 17px 6%;
+  background: #0d142b;
   border-bottom: 1px solid var(--border);
-  background: rgba(16,13,28,.95);
   position: sticky;
   top: 0;
   z-index: 10;
+  gap: 12px;
 }
 
 .logo {
   font-size: 21px;
   font-weight: 800;
-  letter-spacing: -.5px;
+  white-space: nowrap;
 }
 
 .logo span {
-  color: var(--purple);
+  background: linear-gradient(90deg, #8b78ff, #08bdf5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .nav-links {
   display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
-.nav-links a {
+  gap: 18px;
+  font-size: 13px;
   color: var(--muted);
-  font-size: 14px;
 }
 
 .nav-links a:hover {
@@ -93,88 +88,87 @@ a {
 
 .btn {
   display: inline-block;
-  border: none;
+  padding: 12px 19px;
+  border: 0;
   border-radius: 12px;
-  padding: 11px 17px;
-  font-weight: 700;
-  background: linear-gradient(110deg, var(--purple), var(--pink));
-  color: #171020;
+  background: linear-gradient(110deg, #7057ff, #168cff, #08bdf5);
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 5px 22px #4567ff25;
 }
 
 .btn:hover {
   opacity: .9;
 }
 
-.gradient-text {
-  background: linear-gradient(110deg, #6558ed, #08bdf5, #ed4b9b);
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-  }
+.secondary {
+  background: #182443;
+  border: 1px solid #34466d;
+  box-shadow: none;
+}
 
 .hero {
   text-align: center;
-  padding: 65px 20px 35px;
-  max-width: 900px;
-  margin: auto;
+  padding: 75px 20px 55px;
+  background:
+    radial-gradient(ellipse at 20% 20%, #5439a82b, transparent 45%),
+    radial-gradient(ellipse at 80% 10%, #008dc526, transparent 45%);
 }
 
 .badge {
   display: inline-block;
-  border: 1px solid rgba(167,139,250,.4);
-  background: rgba(167,139,250,.1);
-  color: #d4c5ff;
+  padding: 7px 14px;
   border-radius: 30px;
-  padding: 6px 13px;
+  border: 1px solid #6558ed88;
+  background: #6558ed20;
+  color: #c4b5fd;
   font-size: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
 .hero h1 {
-  font-size: clamp(36px, 7vw, 65px);
+  font-size: clamp(37px, 7vw, 66px);
   line-height: 1.12;
   letter-spacing: -2px;
 }
 
-.gradient-text {
-  background: linear-gradient(110deg, #c4b5fd, #f9a8d4);
-  color: transparent;
-  background-clip: text;
+.gradient {
+  background: linear-gradient(100deg, #9a86ff, #08bdf5, #ed72c1);
   -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .hero p {
-  max-width: 600px;
-  margin: 20px auto;
   color: var(--muted);
-  font-size: 16px;
+  max-width: 580px;
+  margin: 20px auto 25px;
 }
 
-.hero-buttons {
+.hero-actions {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 12px;
-  margin-top: 25px;
+  flex-wrap: wrap;
 }
 
 .section {
-  max-width: 1150px;
+  max-width: 1120px;
+  padding: 45px 20px;
   margin: auto;
-  padding: 35px 20px 55px;
 }
 
-.section-heading {
-  margin-bottom: 25px;
+.heading {
+  margin-bottom: 23px;
 }
 
-.section-heading h2 {
+.heading h2 {
   font-size: 28px;
-  margin-bottom: 5px;
 }
 
-.section-heading p {
+.heading p {
   color: var(--muted);
+  font-size: 14px;
 }
 
 .workspace {
@@ -184,247 +178,254 @@ a {
 }
 
 .card {
-  background: var(--panel);
+  background: linear-gradient(145deg, #131e3b, #0f172e);
   border: 1px solid var(--border);
-  border-radius: 20px;
+  border-radius: 18px;
   padding: 23px;
   min-width: 0;
 }
 
 .card h3 {
-  margin-bottom: 15px;
-  font-size: 18px;
+  margin-bottom: 17px;
 }
 
-.mode-tabs {
+.tabs {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-  margin-bottom: 22px;
+  gap: 7px;
+  margin-bottom: 20px;
 }
 
-.mode-tab {
-  background: var(--panel-light);
+.tab {
+  background: #182443;
+  color: var(--muted);
   border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 10px 5px;
-  color: var(--muted);
+  padding: 10px 4px;
   font-size: 12px;
 }
 
-.mode-tab.active {
-  background: rgba(167,139,250,.18);
-  border-color: var(--purple);
+.tab.active {
+  background: linear-gradient(110deg, #7057ff45, #08bdf522);
   color: white;
+  border-color: #8170ff;
 }
 
 label {
   display: block;
   font-size: 13px;
+  font-weight: bold;
   margin-bottom: 8px;
-  font-weight: 700;
-}
-
-textarea, input[type="text"], select {
-  width: 100%;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: #100d1c;
-  color: white;
-  padding: 13px;
-  outline: none;
-}
-
-textarea:focus, input:focus, select:focus {
-  border-color: var(--purple);
-}
-
-textarea {
-  resize: vertical;
-  min-height: 125px;
 }
 
 .field {
   margin-bottom: 18px;
 }
 
+textarea, select {
+  width: 100%;
+  padding: 13px;
+  color: white;
+  background: #0a1126;
+  border: 1px solid #2c3a5d;
+  border-radius: 11px;
+  outline: none;
+}
+
+textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+textarea:focus, select:focus {
+  border-color: #8170ff;
+}
+
+select option {
+  background: #111a33;
+}
+
 .counter {
   display: flex;
   justify-content: space-between;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 11px;
   margin-top: 5px;
 }
 
-.settings-row {
+.settings {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
 
-.upload-box {
-  border: 1px dashed #71648e;
-  border-radius: 13px;
-  padding: 20px;
+.upload {
+  padding: 17px;
   text-align: center;
-  background: rgba(255,255,255,.02);
+  border: 1px dashed #53628b;
+  background: #0b1328;
+  border-radius: 12px;
   margin-bottom: 18px;
 }
 
-.upload-box p {
+.upload p {
   color: var(--muted);
   font-size: 12px;
-  margin: 5px 0 12px;
+  margin-bottom: 12px;
 }
 
-.upload-box input {
-  max-width: 100%;
+.upload input {
+  width: 100%;
   font-size: 12px;
 }
 
-.preview-image {
+#preview {
   max-width: 100%;
-  max-height: 230px;
-  object-fit: contain;
-  border-radius: 12px;
+  max-height: 220px;
   margin-top: 12px;
+  border-radius: 10px;
   display: none;
 }
 
-.full-btn {
+.full {
   width: 100%;
-  margin-top: 5px;
+  margin-top: 8px;
 }
 
-.result-box {
-  min-height: 360px;
+.result {
+  min-height: 390px;
+  padding: 23px;
+  border-radius: 14px;
+  border: 1px dashed #40517b;
+  background:
+    radial-gradient(ellipse at top, #6558ed24, transparent 70%),
+    #0b1328;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background:
-    radial-gradient(ellipse at top, rgba(167,139,250,.12), transparent 65%),
-    #151123;
-  border: 1px dashed #514568;
-  border-radius: 16px;
-  padding: 25px;
+  overflow-wrap: anywhere;
 }
 
 .result-icon {
   font-size: 55px;
   margin-bottom: 12px;
+  background: linear-gradient(120deg, #8b78ff, #08bdf5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-.result-box h3 {
-  margin-bottom: 8px;
-}
-
-.result-box p {
+.result p {
   color: var(--muted);
-  font-size: 14px;
-  max-width: 330px;
+  font-size: 13px;
+  margin-top: 8px;
 }
 
-.result-box img {
+#prepared {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  width: 100%;
+  text-align: left;
+  font-size: 14px;
+}
+
+#resultImage {
   max-width: 100%;
   max-height: 350px;
-  object-fit: contain;
   border-radius: 12px;
-}
-
-.status {
-  font-size: 13px;
-  color: #c4b5fd;
   margin-top: 15px;
-  overflow-wrap: anywhere;
 }
 
-.feature-grid, .pricing-grid, .gallery-grid {
+#status {
+  color: #a5b4fc;
+  font-size: 12px;
+  margin-top: 12px;
+}
+
+.note {
+  background: #6558ed12;
+  border: 1px solid #6558ed55;
+  color: #c4b5fd;
+  padding: 13px;
+  border-radius: 10px;
+  margin-top: 17px;
+  font-size: 12px;
+}
+
+.grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
 }
 
-.feature-card, .price-card, .gallery-card {
-  padding: 22px;
-  background: var(--panel);
+.feature, .price, .gallery {
+  padding: 21px;
   border: 1px solid var(--border);
-  border-radius: 17px;
+  background: var(--panel);
+  border-radius: 15px;
 }
 
 .feature-icon {
-  font-size: 30px;
-  margin-bottom: 12px;
+  font-size: 31px;
+  margin-bottom: 10px;
 }
 
-.feature-card h3, .gallery-card h3 {
-  margin-bottom: 7px;
-}
-
-.feature-card p, .gallery-card p {
+.feature p, .gallery p {
   color: var(--muted);
-  font-size: 14px;
+  font-size: 13px;
+  margin-top: 5px;
 }
 
-.gallery-placeholder {
-  background: linear-gradient(135deg, #342454, #512c54, #202040);
-  border-radius: 12px;
-  min-height: 140px;
+.art {
+  min-height: 135px;
   display: grid;
   place-items: center;
   font-size: 45px;
-  margin-bottom: 13px;
+  border-radius: 11px;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, #32236b, #164a75, #692b67);
 }
 
-.price-card .price {
-  font-size: 32px;
-  font-weight: 800;
+.price .amount {
+  font-size: 29px;
+  font-weight: bold;
   margin: 12px 0;
 }
 
-.price-card .price span {
-  font-size: 13px;
+.price .amount span {
+  font-size: 12px;
   color: var(--muted);
-  font-weight: 400;
+  font-weight: normal;
 }
 
-.price-card ul {
+.price ul {
   list-style: none;
-  margin: 20px 0;
+  margin: 18px 0;
 }
 
-.price-card li {
-  padding: 7px 0;
+.price li {
+  padding: 6px 0;
   color: var(--muted);
-  font-size: 14px;
-}
-
-.price-card li::before {
-  content: "✓ ";
-  color: var(--purple);
-}
-
-.price-card.featured {
-  border-color: var(--purple);
-  box-shadow: 0 0 30px rgba(167,139,250,.08);
-}
-
-.notice {
-  border: 1px solid rgba(244,114,182,.3);
-  background: rgba(244,114,182,.07);
-  color: #f5c8e0;
-  border-radius: 12px;
-  padding: 14px;
   font-size: 13px;
-  margin-top: 18px;
+}
+
+.price li::before {
+  content: "✓ ";
+  color: #08bdf5;
+}
+
+.featured {
+  border-color: #8170ff;
+  box-shadow: 0 0 25px #6558ed18;
 }
 
 footer {
   text-align: center;
-  border-top: 1px solid var(--border);
-  padding: 30px 20px;
+  padding: 30px 15px;
   color: var(--muted);
+  border-top: 1px solid var(--border);
   font-size: 13px;
 }
 
@@ -432,12 +433,8 @@ footer strong {
   color: white;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 750px) {
   .nav-links {
-    gap: 10px;
-  }
-
-  .nav-links a {
     display: none;
   }
 
@@ -445,20 +442,16 @@ footer strong {
     grid-template-columns: 1fr;
   }
 
-  .feature-grid, .pricing-grid, .gallery-grid {
+  .grid {
     grid-template-columns: 1fr;
   }
 
   .hero {
-    padding-top: 45px;
-  }
-
-  .hero h1 {
-    letter-spacing: -1px;
+    padding-top: 55px;
   }
 
   .card {
-    padding: 17px;
+    padding: 16px;
   }
 }
 </style>
@@ -473,452 +466,366 @@ footer strong {
     <a href="#create">Create</a>
     <a href="#features">Features</a>
     <a href="#gallery">Gallery</a>
-    <a href="#pricing">Plans</a>
+    <a href="#pricing">Pricing</a>
   </nav>
 
-  <a href="#create" class="btn">Start Creating</a>
+  <a href="#create" class="btn">Start Creating ↗</a>
 </header>
 
-<main>
-
 <section class="hero">
-  <div class="badge">✦ YOUR CREATIVE SPACE</div>
+  <div class="badge">✦ YOUR AI CREATIVE WORKSPACE</div>
 
   <h1>
-    Turn your ideas into
-    <span class="gradient-text">visual magic.</span>
+    Imagine it.<br>
+    <span class="gradient">Create it with AI.</span>
   </h1>
 
   <p>
-    Explore your imagination with a creative workspace
-    designed for AI images, videos, and visual storytelling.
+    Transform your ideas into stunning visual concepts.
+    Explore image creation, video concepts, and creative tools
+    in one beautiful workspace.
   </p>
 
-  <div class="hero-buttons">
-    <a href="#create" class="btn">Start Creating →</a>
-    <a href="#features" class="btn btn-secondary">Explore Features</a>
+  <div class="hero-actions">
+    <a href="#create" class="btn">✦ Create Now</a>
+    <a href="#features" class="btn secondary">Explore Tools</a>
   </div>
 </section>
 
 <section class="section" id="create">
-  <div class="section-heading">
-    <h2>Creative Workspace</h2>
-    <p>Describe your idea, choose your settings, and prepare your creation.</p>
+  <div class="heading">
+    <h2>✦ Creative Studio</h2>
+    <p>Bring your imagination to life.</p>
   </div>
 
   <div class="workspace">
 
     <div class="card">
-      <h3>✦ Create something new</h3>
+      <h3>Create your masterpiece</h3>
 
-      <div class="mode-tabs">
-        <button class="mode-tab active" data-mode="image">
-          🖼️ Text to Image
-        </button>
-
-        <button class="mode-tab" data-mode="video">
-          🎬 Text to Video
-        </button>
-
-        <button class="mode-tab" data-mode="animate">
-          ✨ Image to Video
-        </button>
+      <div class="tabs">
+        <button class="tab active" data-mode="image">🖼️ Image</button>
+        <button class="tab" data-mode="video">🎬 Video</button>
+        <button class="tab" data-mode="animate">✨ Animate</button>
       </div>
 
       <div class="field">
         <label for="prompt">Describe your idea</label>
 
-        <textarea
-          id="prompt"
-          maxlength="1500"
-          placeholder="Describe what you want to create..."
-        ></textarea>
+        <textarea id="prompt" maxlength="1500"
+          placeholder="Describe the image you want to create..."></textarea>
 
         <div class="counter">
-          <span>Be as descriptive as you like.</span>
-          <span id="counter">0/1500</span>
+          <span>Be creative and descriptive.</span>
+          <span id="count">0/1500</span>
         </div>
       </div>
 
-      <div class="upload-box">
-        <label for="imageUpload">Upload a reference image (optional)</label>
-
-        <p>Choose an image from your phone.</p>
-
-        <input
-          type="file"
-          id="imageUpload"
-          accept="image/*"
-        >
-
-        <img
-          id="imagePreview"
-          class="preview-image"
-          alt="Uploaded image preview"
-        >
+      <div class="upload">
+        <label for="file">Upload a reference image</label>
+        <p>Choose an image from your phone (optional).</p>
+        <input type="file" id="file" accept="image/*">
+        <img id="preview" alt="Your uploaded image">
       </div>
 
-      <div class="settings-row">
+      <div class="settings">
         <div class="field">
           <label for="ratio">Aspect ratio</label>
-
           <select id="ratio">
-            <option value="1:1">Square (1:1)</option>
-            <option value="16:9">Landscape (16:9)</option>
-            <option value="9:16">Portrait (9:16)</option>
-            <option value="4:3">Classic (4:3)</option>
+            <option>1:1 Square</option>
+            <option>16:9 Landscape</option>
+            <option>9:16 Portrait</option>
+            <option>4:3 Classic</option>
           </select>
         </div>
 
         <div class="field">
-          <label for="style">Visual style</label>
-
+          <label for="style">Art style</label>
           <select id="style">
             <option>Realistic</option>
             <option>Cinematic</option>
             <option>Anime</option>
-            <option>Digital Art</option>
             <option>3D Render</option>
-            <option>Watercolour</option>
+            <option>Digital Art</option>
             <option>Fantasy</option>
+            <option>Watercolour</option>
           </select>
         </div>
       </div>
 
-      <button class="btn full-btn" id="prepareBtn">
-        Prepare My Prompt ✨
-      </button>
+      <button class="btn full" id="prepare">Prepare Prompt ✨</button>
+      <button class="btn secondary full" id="copy">Copy Prompt</button>
 
-      <button class="btn btn-secondary full-btn" id="copyBtn">
-        Copy Prepared Prompt
-      </button>
-
-      <div class="notice">
-        AI generation is not connected yet. This workspace currently
-        prepares prompts and previews uploaded images.
+      <div class="note">
+        This is the creative interface. Connect an AI image service
+        to generate actual images.
       </div>
     </div>
 
     <div class="card">
-      <h3>Your Creation</h3>
+      <h3>Your Canvas</h3>
 
-      <div class="result-box" id="resultBox">
+      <div class="result" id="result">
         <div class="result-icon">✧</div>
-
-        <h3>Your canvas awaits</h3>
-
-        <p>
-          Your prepared prompt will appear here.
-          Connect an AI provider to generate real images and videos.
-        </p>
+        <h3>Your next masterpiece starts here.</h3>
+        <p>Write a prompt and tap Prepare Prompt to begin.</p>
       </div>
 
-      <p class="status" id="status" aria-live="polite">
-        Ready for your idea.
-      </p>
+      <div id="status" aria-live="polite">Ready to create.</div>
     </div>
 
   </div>
 </section>
 
 <section class="section" id="features">
-  <div class="section-heading">
-    <h2>Made for your imagination</h2>
-    <p>Build your creative workflow in one place.</p>
+  <div class="heading">
+    <h2>Everything you need to imagine</h2>
+    <p>Your creative journey starts here.</p>
   </div>
 
-  <div class="feature-grid">
-    <article class="feature-card">
+  <div class="grid">
+    <div class="feature">
       <div class="feature-icon">🎨</div>
       <h3>AI Image Creation</h3>
-      <p>Prepare detailed prompts for original visual concepts.</p>
-    </article>
+      <p>Prepare prompts for beautiful image concepts.</p>
+    </div>
 
-    <article class="feature-card">
+    <div class="feature">
       <div class="feature-icon">🎬</div>
-      <h3>Video Creation</h3>
-      <p>Plan scenes, movement, atmosphere, and cinematic shots.</p>
-    </article>
+      <h3>AI Video Creation</h3>
+      <p>Develop cinematic scenes and video ideas.</p>
+    </div>
 
-    <article class="feature-card">
+    <div class="feature">
       <div class="feature-icon">🪄</div>
       <h3>Image Transformation</h3>
-      <p>Upload a reference image and prepare a transformation prompt.</p>
-    </article>
+      <p>Plan creative transformations using reference images.</p>
+    </div>
 
-    <article class="feature-card">
+    <div class="feature">
+      <div class="feature-icon">🌈</div>
+      <h3>Creative Styles</h3>
+      <p>Explore different looks, moods, and visual styles.</p>
+    </div>
+
+    <div class="feature">
       <div class="feature-icon">📱</div>
       <h3>Mobile Friendly</h3>
-      <p>Use the creative workspace from your phone or computer.</p>
-    </article>
+      <p>Create your ideas from your phone or computer.</p>
+    </div>
 
-    <article class="feature-card">
-      <div class="feature-icon">💡</div>
-      <h3>Creative Freedom</h3>
-      <p>Explore different visual styles and aspect ratios.</p>
-    </article>
-
-    <article class="feature-card">
+    <div class="feature">
       <div class="feature-icon">🚀</div>
-      <h3>Room to Grow</h3>
-      <p>Build toward AI integrations, accounts, and a creation gallery.</p>
-    </article>
+      <h3>More Coming</h3>
+      <p>Build toward real AI generation and saved creations.</p>
+    </div>
   </div>
 </section>
 
 <section class="section" id="gallery">
-  <div class="section-heading">
-    <h2>Explore the possibilities</h2>
-    <p>Example categories for your future creation gallery.</p>
+  <div class="heading">
+    <h2>Explore creative worlds</h2>
+    <p>Imagine what you could create.</p>
   </div>
 
-  <div class="gallery-grid">
-    <article class="gallery-card">
-      <div class="gallery-placeholder">🌌</div>
+  <div class="grid">
+    <div class="gallery">
+      <div class="art">🌌</div>
       <h3>Fantasy Worlds</h3>
-      <p>Dreamlike places and imaginative environments.</p>
-    </article>
+      <p>Magical environments and dreamlike scenes.</p>
+    </div>
 
-    <article class="gallery-card">
-      <div class="gallery-placeholder">🏙️</div>
-      <h3>Cinematic Scenes</h3>
-      <p>Visual concepts inspired by film and storytelling.</p>
-    </article>
+    <div class="gallery">
+      <div class="art">🏙️</div>
+      <h3>Cinematic Visions</h3>
+      <p>Beautiful concepts inspired by the world of film.</p>
+    </div>
 
-    <article class="gallery-card">
-      <div class="gallery-placeholder">🤖</div>
-      <h3>Digital Futures</h3>
-      <p>Explore futuristic concepts and digital art styles.</p>
-    </article>
+    <div class="gallery">
+      <div class="art">🤖</div>
+      <h3>Future Realities</h3>
+      <p>Explore imaginative futuristic designs.</p>
+    </div>
   </div>
 </section>
 
 <section class="section" id="pricing">
-  <div class="section-heading">
-    <h2>Plans for every creator</h2>
-    <p>These are draft plans for the future, not active subscriptions.</p>
+  <div class="heading">
+    <h2>Choose your creative journey</h2>
+    <p>Draft plans for future features.</p>
   </div>
 
-  <div class="pricing-grid">
-    <article class="price-card">
+  <div class="grid">
+    <div class="price">
       <h3>Free</h3>
-      <div class="price">₦0 <span>/ month</span></div>
-
+      <div class="amount">₦0 <span>/ month</span></div>
       <ul>
-        <li>Access to the workspace</li>
+        <li>Creative workspace</li>
         <li>Prompt preparation</li>
         <li>Image preview</li>
       </ul>
+      <a href="#create" class="btn secondary">Get Started</a>
+    </div>
 
-      <a href="#create" class="btn btn-secondary">Get Started</a>
-    </article>
-
-    <article class="price-card featured">
+    <div class="price featured">
       <h3>Pro</h3>
-      <div class="price">₦3,000 <span>/ month</span></div>
-
+      <div class="amount">₦3,000 <span>/ month</span></div>
       <ul>
-        <li>Potential higher generation limits</li>
+        <li>Potential higher AI limits</li>
         <li>Potential premium models</li>
         <li>Potential saved creations</li>
       </ul>
+      <a href="#create" class="btn">Coming Soon</a>
+    </div>
 
-      <a href="#create" class="btn">Coming Later</a>
-    </article>
-
-    <article class="price-card">
+    <div class="price">
       <h3>Pro Max</h3>
-      <div class="price">₦5,000 <span>/ month</span></div>
-
+      <div class="amount">₦5,000 <span>/ month</span></div>
       <ul>
         <li>Potential advanced models</li>
-        <li>Potential video generation</li>
+        <li>Potential video tools</li>
         <li>Potential extended limits</li>
       </ul>
-
-      <a href="#create" class="btn btn-secondary">Coming Later</a>
-    </article>
+      <a href="#create" class="btn secondary">Coming Soon</a>
+    </div>
   </div>
 
-  <div class="notice">
-    No payments or subscriptions are active. Pricing and features
-    must be confirmed before launch.
+  <div class="note">
+    Payments and subscriptions are not connected. These are draft plans.
   </div>
 </section>
 
-</main>
-
 <footer>
-  <p><strong>VisionAI Studio</strong> — Your ideas, your imagination.</p>
-  <p>Built step by step with creativity.</p>
+  <p><strong>VisionAI Studio</strong></p>
+  <p>Your imagination. Your creative space.</p>
   <p>© <span id="year"></span> VisionAI Studio</p>
 </footer>
 
 <script>
 const promptInput = document.getElementById("prompt");
-const counter = document.getElementById("counter");
-const imageUpload = document.getElementById("imageUpload");
-const imagePreview = document.getElementById("imagePreview");
-const resultBox = document.getElementById("resultBox");
-const statusText = document.getElementById("status");
+const count = document.getElementById("count");
+const fileInput = document.getElementById("file");
+const preview = document.getElementById("preview");
+const result = document.getElementById("result");
+const status = document.getElementById("status");
 
-let currentMode = "image";
+let mode = "image";
 let preparedPrompt = "";
-let uploadedImageUrl = "";
+let imageURL = "";
 
 document.getElementById("year").textContent =
   new Date().getFullYear();
 
 promptInput.addEventListener("input", function () {
-  counter.textContent =
-    promptInput.value.length + "/1500";
+  count.textContent = promptInput.value.length + "/1500";
 });
 
-document.querySelectorAll(".mode-tab").forEach(function (button) {
-  button.addEventListener("click", function () {
-    document.querySelectorAll(".mode-tab").forEach(function (tab) {
-      tab.classList.remove("active");
+document.querySelectorAll(".tab").forEach(function (tab) {
+  tab.addEventListener("click", function () {
+    document.querySelectorAll(".tab").forEach(function (item) {
+      item.classList.remove("active");
     });
 
-    button.classList.add("active");
-    currentMode = button.dataset.mode;
+    tab.classList.add("active");
+    mode = tab.dataset.mode;
 
     const placeholders = {
-      image: "Example: A beautiful futuristic city at sunset, cinematic lighting, highly detailed...",
-      video: "Example: A cinematic drone shot flying over a futuristic city at sunset...",
-      animate: "Example: Make the clouds move slowly and let the camera gently move forward..."
+      image: "Describe the image you want to create...",
+      video: "Describe the video scene you imagine...",
+      animate: "Describe how you want your image to move..."
     };
 
-    promptInput.placeholder = placeholders[currentMode];
+    promptInput.placeholder = placeholders[mode];
 
-    if (currentMode === "animate") {
-      imageUpload.accept = "image/*";
-    }
-
-    statusText.textContent =
-      "Selected mode: " + button.textContent.trim();
+    status.textContent = "Selected mode: " + mode;
   });
 });
 
-imageUpload.addEventListener("change", function () {
-  const file = imageUpload.files[0];
+fileInput.addEventListener("change", function () {
+  const file = fileInput.files[0];
 
-  if (!file) {
-    return;
-  }
+  if (!file) return;
 
   if (!file.type.startsWith("image/")) {
-    statusText.textContent = "Please choose an image file.";
-    imageUpload.value = "";
+    status.textContent = "Please select an image.";
+    fileInput.value = "";
     return;
   }
 
-  if (uploadedImageUrl) {
-    URL.revokeObjectURL(uploadedImageUrl);
-  }
+  if (imageURL) URL.revokeObjectURL(imageURL);
 
-  uploadedImageUrl = URL.createObjectURL(file);
+  imageURL = URL.createObjectURL(file);
+  preview.src = imageURL;
+  preview.style.display = "block";
 
-  imagePreview.src = uploadedImageUrl;
-  imagePreview.style.display = "block";
-
-  statusText.textContent =
-    "Image selected: " + file.name;
+  status.textContent = "Image uploaded for preview.";
 });
 
-document.getElementById("prepareBtn").addEventListener(
-  "click",
-  function () {
-    const userPrompt = promptInput.value.trim();
+document.getElementById("prepare").addEventListener("click", function () {
+  const prompt = promptInput.value.trim();
 
-    if (!userPrompt) {
-      statusText.textContent =
-        "Please describe what you want to create first.";
-
-      promptInput.focus();
-      return;
-    }
-
-    const style = document.getElementById("style").value;
-    const ratio = document.getElementById("ratio").value;
-
-    const modeNames = {
-      image: "Text to Image",
-      video: "Text to Video",
-      animate: "Image to Video"
-    };
-
-    preparedPrompt =
-      "Mode: " + modeNames[currentMode] + "\n" +
-      "Prompt: " + userPrompt + "\n" +
-      "Visual style: " + style + "\n" +
-      "Aspect ratio: " + ratio;
-
-    resultBox.innerHTML = "";
-
-    const heading = document.createElement("h3");
-    heading.textContent = "Your prepared prompt";
-
-    const promptDisplay = document.createElement("pre");
-    promptDisplay.textContent = preparedPrompt;
-
-    promptDisplay.style.whiteSpace = "pre-wrap";
-    promptDisplay.style.overflowWrap = "anywhere";
-    promptDisplay.style.textAlign = "left";
-    promptDisplay.style.width = "100%";
-    promptDisplay.style.fontFamily = "inherit";
-    promptDisplay.style.fontSize = "14px";
-    promptDisplay.style.color = "#e9e4f8";
-    promptDisplay.style.marginTop = "12px";
-
-    resultBox.appendChild(heading);
-    resultBox.appendChild(promptDisplay);
-
-    if (uploadedImageUrl) {
-      const preview = document.createElement("img");
-      preview.src = uploadedImageUrl;
-      preview.alt = "Your uploaded reference image";
-      preview.style.marginTop = "18px";
-
-      resultBox.appendChild(preview);
-    }
-
-    statusText.textContent =
-      "Prompt prepared. AI generation is not connected yet.";
+  if (!prompt) {
+    status.textContent = "Please describe your idea first.";
+    promptInput.focus();
+    return;
   }
-);
 
-document.getElementById("copyBtn").addEventListener(
-  "click",
-  async function () {
-    if (!preparedPrompt) {
-      statusText.textContent =
-        "Prepare your prompt before copying it.";
-      return;
-    }
+  const style = document.getElementById("style").value;
+  const ratio = document.getElementById("ratio").value;
 
-    try {
-      await navigator.clipboard.writeText(preparedPrompt);
+  preparedPrompt =
+    "Mode: " + mode + "\n" +
+    "Prompt: " + prompt + "\n" +
+    "Style: " + style + "\n" +
+    "Aspect ratio: " + ratio;
 
-      statusText.textContent = "Prompt copied successfully!";
-    } catch (error) {
-      const temporaryInput = document.createElement("textarea");
+  result.innerHTML = "";
 
-      temporaryInput.value = preparedPrompt;
-      document.body.appendChild(temporaryInput);
+  const heading = document.createElement("h3");
+  heading.textContent = "Your Prepared Prompt";
 
-      temporaryInput.select();
+  const text = document.createElement("pre");
+  text.id = "prepared";
+  text.textContent = preparedPrompt;
 
-      const copied = document.execCommand("copy");
+  result.appendChild(heading);
+  result.appendChild(text);
 
-      temporaryInput.remove();
-
-      statusText.textContent = copied
-        ? "Prompt copied successfully!"
-        : "Copy failed. Please select and copy the prompt manually.";
-    }
+  if (imageURL) {
+    const image = document.createElement("img");
+    image.id = "resultImage";
+    image.src = imageURL;
+    image.alt = "Uploaded reference image";
+    result.appendChild(image);
   }
-);
+
+  status.textContent =
+    "Prompt prepared. Real AI generation still needs to be connected.";
+});
+
+document.getElementById("copy").addEventListener("click", async function () {
+  if (!preparedPrompt) {
+    status.textContent = "Prepare your prompt first.";
+    return;
+  }
+
+  try {
+    await navigator.clipboard.writeText(preparedPrompt);
+    status.textContent = "Prompt copied!";
+  } catch (error) {
+    const box = document.createElement("textarea");
+    box.value = preparedPrompt;
+    document.body.appendChild(box);
+    box.select();
+
+    const success = document.execCommand("copy");
+    box.remove();
+
+    status.textContent = success
+      ? "Prompt copied!"
+      : "Please copy the prompt manually.";
+  }
+});
 </script>
 
 </body>
