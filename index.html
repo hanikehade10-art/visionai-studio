@@ -8,15 +8,20 @@
 <title>VisionAI Studio</title>
 
 <style>
-:root {
-  --bg: #100d1c;
-  --panel: #1b162b;
-  --panel-light: #241d38;
-  --purple: #a78bfa;
-  --pink: #f472b6;
-  --text: #f8f7ff;
-  --muted: #aaa4bd;
-  --border: rgba(255,255,255,.1);
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: 16px;
+  padding: 12px 20px;
+  font-weight: 700;
+  background: linear-gradient(110deg, #6558ed, #08bdf5);
+  color: #ffffff;
+  transition: 0.25s ease;
+}
+
+.btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
 }
 
 * {
@@ -101,11 +106,12 @@ a {
   opacity: .9;
 }
 
-.btn-secondary {
-  color: white;
-  background: var(--panel-light);
-  border: 1px solid var(--border);
-}
+.gradient-text {
+  background: linear-gradient(110deg, #6558ed, #08bdf5, #ed4b9b);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  }
 
 .hero {
   text-align: center;
